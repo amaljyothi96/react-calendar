@@ -1,0 +1,40 @@
+.calendar-view {
+  margin: 20px auto;
+
+  .input {
+    margin: 20px 0px;
+    input {
+      width: 150px;
+      margin-bottom: 20px;
+      height: 25px;
+    }
+
+    button {
+      color: white;
+      width: 150px;
+      height: 34px;
+      border: unset;
+      background: linear-gradient(to right, #0adee3, #32a4fa);
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  }
+}
+
+.calendar {
+  border: 1px solid #e5e5e5;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 6px 8px 25px #e4e4e4;
+
+  .title {
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  .highlight {
+    background-color: grey;
+    color: white;
+    border-radius: 5px;
+  }
+}

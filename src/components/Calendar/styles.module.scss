@@ -1,0 +1,21 @@
+.calendar {
+  border: 1px solid #e5e5e5;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 6px 8px 25px #e4e4e4;
+
+  .title {
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  .highlight {
+    background-color: #32a4fa;
+    color: white;
+    border-radius: 5px;
+  }
+}
+
+.column {
+  min-width: 14.2%;
+  min-height: 45px;
+}
