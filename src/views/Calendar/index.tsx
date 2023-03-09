@@ -7,7 +7,6 @@ export default function CalendarView() {
   const [date, setDate] = useState<string>("");
   const setValue = (value: string) => {
     setDate(value);
-    console.log(value);
   };
   return (
     <div className={`${styles["calendar-view"]} w-50`}>

@@ -15,23 +15,31 @@ export default function Calendar(props: CalendarPropType) {
   const [dateOfday, setDateOfDay] = useState<number>(0);
   const [firstDay, setFirstDay] = useState<number>(0);
   const [lastDay, setLastDay] = useState<number>(0);
+  const [errorMessage, setErrorMessage] = useState<string>("");
+  const [isValid, setIsValid] = useState<Boolean>(false);
 
   useEffect(() => {
     if (date) {
-      const dateObj = getFormattedDate(date);
-      setDateOfDay(dateObj.getDate());
-      setMonth(months[dateObj.getMonth()]);
-      setYear(dateObj.getFullYear());
-      setFirstDay(
-        new Date(dateObj.getFullYear(), dateObj.getMonth(), 1).getDay()
-      );
-      setLastDay(
-        new Date(dateObj.getFullYear(), dateObj.getMonth() + 1, 0).getDate()
-      );
+      const dateObj: false | Date = getFormattedDate(date);
+      if (dateObj) {
+        setIsValid(true);
+        setDateOfDay(dateObj.getDate());
+        setMonth(months[dateObj.getMonth()]);
+        setYear(dateObj.getFullYear());
+        setFirstDay(
+          new Date(dateObj.getFullYear(), dateObj.getMonth(), 1).getDay()
+        );
+        setLastDay(
+          new Date(dateObj.getFullYear(), dateObj.getMonth() + 1, 0).getDate()
+        );
+      } else {
+        setIsValid(false);
+        setErrorMessage("Invalid Date!");
+      }
     }
   }, [date]);
 
-  return date ? (
+  return isValid ? (
     <div className={styles.calendar}>
       <div className={`text-center ${styles.title}`}>
         {month} {year}
@@ -66,6 +74,6 @@ export default function Calendar(props: CalendarPropType) {
       </div>
     </div>
   ) : (
-    <div></div>
+    <div className="text-center text-error">{errorMessage}</div>
   );
 }

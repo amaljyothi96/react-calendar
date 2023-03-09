@@ -26,6 +26,12 @@
   &-center {
     text-align: center;
   }
+
+  &-error {
+    color: red;
+    font-size: 12px;
+    font-weight: 700;
+  }
 }
 
 .justify {
